@@ -1,4 +1,4 @@
-package pivotal.io.service;
+package io.pivotal.service;
 
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;

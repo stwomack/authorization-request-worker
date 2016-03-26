@@ -1,4 +1,4 @@
-package pivotal.io.domain;
+package io.pivotal.domain;
 
 import java.util.Date;
 
