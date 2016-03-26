@@ -2,9 +2,9 @@
 instances: 1
 memory: 512M
 applications:
-  - name: account-service	
-    host: accountz
-    path: target/account-service-0.0.1-SNAPSHOT.jar
+  - name: authorization-request-worker
+    host: workerz
+    path: target/authorization-request-worker-0.0.1-SNAPSHOT.jar
     services:
       - womack-rabbitmq
 #      - womack-configserver
