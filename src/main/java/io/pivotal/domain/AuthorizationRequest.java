@@ -6,17 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
 public class AuthorizationRequest {
-    @JsonProperty()
+    private Long id;
     private Long issuerId;
-    @JsonProperty()
     private Long acquirerId;
-    @JsonProperty()
     private String cardNumber;
-    @JsonProperty()
     private Double amount;
-    @JsonProperty()
     private String name;
-    @JsonProperty()
     private Date transactionDate;
 
     public AuthorizationRequest() {
@@ -83,7 +78,8 @@ public class AuthorizationRequest {
     @Override
     public String toString() {
         return "AuthorizationRequest{" +
-                "issuerId=" + issuerId +
+                "id=" + id +
+                ", issuerId=" + issuerId +
                 ", acquirerId=" + acquirerId +
                 ", cardNumber='" + cardNumber + '\'' +
                 ", amount=" + amount +

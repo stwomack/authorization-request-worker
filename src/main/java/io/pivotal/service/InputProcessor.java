@@ -13,7 +13,7 @@ import org.springframework.messaging.handler.annotation.SendTo;
 
 @EnableBinding(Processor.class)
 public class InputProcessor {
-    public static final String URL = "http://localhost:8088/authorizationRequest";
+    public static final String URL = "http://localhost:8088/authorizationRequests";
     ObjectMapper mapper = new ObjectMapper();
 
     // Add toggle for endpoint URL - local vs pcf
