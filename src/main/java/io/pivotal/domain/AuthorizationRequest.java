@@ -5,12 +5,12 @@ import java.util.Date;
 public class AuthorizationRequest {
     private Long issuerId;
     private Long acquirerId;
-    private Long cardNumber;
+    private String cardNumber;
     private Double amount;
     private String name;
     private Date transactionDate;
 
-    public AuthorizationRequest(Long issuerId, Long acquirerId, Long cardNumber, Double amount, String name, Date transactionDate) {
+    public AuthorizationRequest(Long issuerId, Long acquirerId, String cardNumber, Double amount, String name, Date transactionDate) {
         this.issuerId = issuerId;
         this.acquirerId = acquirerId;
         this.cardNumber = cardNumber;
@@ -35,11 +35,11 @@ public class AuthorizationRequest {
         this.acquirerId = acquirerId;
     }
 
-    public Long getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(Long cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 
