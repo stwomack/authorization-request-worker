@@ -6,7 +6,7 @@ applications:
     host: workerz
     path: target/authorization-request-worker-0.0.1-SNAPSHOT.jar
     services:
-      - mc-rabbitmq
-      - mc-kafka
+      - my-rabbitmq
+      - my-redis
     env:
       SPRING_PROFILES_ACTIVE: dev

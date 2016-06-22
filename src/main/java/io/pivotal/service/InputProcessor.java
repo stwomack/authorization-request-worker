@@ -5,21 +5,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Processor;
+import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 
 @EnableBinding(Processor.class)
 public class InputProcessor {
-    public static final String URL = "http://localhost:8088/authorizationRequests";
+    @Value("${authRequestsServiceUrl}")
+    private String URL;
+
     ObjectMapper mapper = new ObjectMapper();
 
-    // Add toggle for endpoint URL - local vs pcf
-
-    @StreamListener(Processor.INPUT)
-    @SendTo(Processor.OUTPUT)
+    //    @StreamListener(Processor.INPUT)
+    //    @SendTo(Processor.OUTPUT)
+    @ServiceActivator(inputChannel = Processor.INPUT, outputChannel = Processor.OUTPUT)
     public Object processMessage(@Payload Object message) throws UnirestException, JsonProcessingException {
         String payload = mapper.writeValueAsString(message);
         Unirest.post(URL)
