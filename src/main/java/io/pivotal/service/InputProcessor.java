@@ -20,15 +20,16 @@ public class InputProcessor {
 
     ObjectMapper mapper = new ObjectMapper();
 
-    //    @StreamListener(Processor.INPUT)
-    //    @SendTo(Processor.OUTPUT)
+    @StreamListener(Processor.INPUT)
+    @SendTo(Processor.OUTPUT)
     @ServiceActivator(inputChannel = Processor.INPUT, outputChannel = Processor.OUTPUT)
     public Object processMessage(@Payload Object message) throws UnirestException, JsonProcessingException {
         String payload = mapper.writeValueAsString(message);
-        Unirest.post(URL)
-                .header("Content-Type", "application/json")
-                .body(payload)
-                .asJson();
+        System.err.println(payload);
+//        Unirest.post(URL)
+//                .header("Content-Type", "application/json")
+//                .body(payload)
+//                .asJson();
         return message;
     }
 }
