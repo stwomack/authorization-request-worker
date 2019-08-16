@@ -1,10 +1,10 @@
 ---
 instances: 3
-memory: 512M
+memory: 756M
 applications:
   - name: authorization-request-worker
     host: workerz
     path: target/authorization-request-worker-0.0.1-SNAPSHOT.jar
     services:
       - my-rabbitmq
-      - my-redis
+#      - my-redis
