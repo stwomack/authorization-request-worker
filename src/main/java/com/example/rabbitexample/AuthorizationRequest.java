@@ -1,4 +1,4 @@
-package io.pivotal.domain;
+package com.example.rabbitexample;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
